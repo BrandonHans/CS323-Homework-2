@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 numpy = "*"
 scipy = "*"
+matplotlib = "*"
+sympy = "*"
 
 [requires]
 python_version = "3.8"

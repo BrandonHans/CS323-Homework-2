@@ -10,10 +10,16 @@ def func(x):
     return val
 
 
-# print(func(0.))
+print("Initial Guess at f(0): " + str(round(func(0), 4)))
+print("Initial Guess at f(1): " + str(round(func(1), 4)))
+print("Initial Guess at f(2): " + str(round(func(2), 4)))
+print("----------------------")
+
+
 # print(func(1.5))
 # print(func(2.5))
 # print(func(5))
+
 
 def bisection(f, a, b, max_iters, eps):
     if f(a) * f(b) >= eps:
@@ -42,17 +48,16 @@ def bisection(f, a, b, max_iters, eps):
             b = b
             c = 0.5 * (a + b)
         iters += 1
-        print(str(iters) + " Iterative Step: " + str(round(f(c), 4)))
+        print(str(iters) + " Iterative Step: " + str(abs(round(f(c), 4))))
 
-    print('{}: {}'.format(c, f(c)))
+    # print('{}: {}'.format(c, f(c)))
+    print("----------------------")
+    print("The root at f(x) = 0 is: " + str(round(c, 4)))
     print('iterations: {}'.format(iters))
     plt.plot(steps, roots)
-    plt.show()
+    plt.xlabel("k")
+    plt.ylabel("|f(x_k)|")
+    # plt.show()
 
 
-# print(func(-2))
-# print(func(-1))
-# print(func(1))
-# print(func(2))
-# print(func(3))
 bisection(f=func, a=0., b=2., max_iters=10000, eps=1e-6)

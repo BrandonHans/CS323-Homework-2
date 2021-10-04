@@ -1,3 +1,4 @@
+# Brandon Hansen CS323 Homework 2 Problem 2
 import math
 import matplotlib.pyplot as plt
 
@@ -16,11 +17,6 @@ print("Initial Guess at f(2): " + str(round(func(2), 4)))
 print("----------------------")
 
 
-# print(func(1.5))
-# print(func(2.5))
-# print(func(5))
-
-
 def bisection(f, a, b, max_iters, eps):
     if f(a) * f(b) >= eps:
         print('error: could not use bisection method!')
@@ -30,10 +26,7 @@ def bisection(f, a, b, max_iters, eps):
     c = 0.5 * (a + b)
     steps = []
     roots = []
-    '''
-        Note that the max_iters was dismissed in the video.
-        It can be used as another stop criteria 
-    '''
+
     while abs(f(c)) >= eps and iters < max_iters:
         steps.append(iters)
         roots.append(c)
@@ -57,7 +50,7 @@ def bisection(f, a, b, max_iters, eps):
     plt.plot(steps, roots)
     plt.xlabel("k")
     plt.ylabel("|f(x_k)|")
-    # plt.show()
+    plt.show()
 
 
 bisection(f=func, a=0., b=2., max_iters=10000, eps=1e-6)
